@@ -1,49 +1,18 @@
 import { Analytics } from '@vercel/analytics/next'
+import { DM_Serif_Display, Manrope } from 'next/font/google'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
+const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope' })
+const dmSerif = DM_Serif_Display({ subsets: ['latin'], weight: '400', variable: '--font-dm-serif' })
+
 export const metadata: Metadata = {
-  title: 'Simiu — Practice smarter. Get hired sooner.',
-  description: 'Simiu is the AI-powered mock interview simulator and junior job board for your next role.',
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
+  title: 'Simiu — Practice until confidence feels familiar.',
+  description: 'Simiu is the calm AI interview practice space and junior job board for your next role.',
 }
 
-export const viewport: Viewport = {
-  colorScheme: 'light dark',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
-}
+export const viewport: Viewport = { colorScheme: 'dark', themeColor: '#111318' }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
-  return (
-    <html lang="en">
-      <body className="antialiased">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
-      </body>
-    </html>
-  )
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <html lang="en" className="bg-background"><body className={`${manrope.variable} ${dmSerif.variable} antialiased`}>{children}{process.env.NODE_ENV === 'production' && <Analytics />}</body></html>
 }

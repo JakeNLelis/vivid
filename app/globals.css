@@ -18,29 +18,23 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --radius-2xl: 1rem;
-  --radius-3xl: 1.5rem;
-  --font-sans: 'Geist', 'Geist Fallback';
+  --color-signal: var(--signal);
+  --color-indigo: var(--indigo);
+  --font-sans: 'Manrope', 'Manrope Fallback';
+  --font-serif: 'DM Serif Display', 'DM Serif Display Fallback';
 }
 
-:root {
-  color-scheme: dark;
-  --background: oklch(0.13 0.02 260);
-  --foreground: oklch(0.96 0.01 260);
-  --card: oklch(0.17 0.025 260);
-  --card-foreground: oklch(0.96 0.01 260);
-  --popover: oklch(0.17 0.025 260);
-  --popover-foreground: oklch(0.96 0.01 260);
-  --primary: oklch(0.72 0.16 158);
-  --primary-foreground: oklch(0.12 0.03 155);
-  --muted: oklch(0.22 0.025 260);
-  --muted-foreground: oklch(0.68 0.025 260);
-  --border: oklch(1 0 0 / 11%);
-  --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.72 0.16 158);
-}
-
+:root { color-scheme: dark; --background: #111318; --foreground: #f3f0e8; --card: #1a1e25; --card-foreground: #f3f0e8; --popover: #1a1e25; --popover-foreground: #f3f0e8; --primary: #b7e4c7; --primary-foreground: #20252b; --muted: #222730; --muted-foreground: #9da2ad; --border: rgba(243,240,232,.13); --input: rgba(243,240,232,.17); --ring: #b7e4c7; --signal: #b7e4c7; --indigo: #b9b4f5; }
 * { @apply border-border outline-ring/50; }
 html { background: var(--background); scroll-behavior: smooth; }
 body { @apply bg-background text-foreground font-sans; }
-::selection { background: oklch(0.72 0.16 158 / 30%); }
+::selection { background: rgba(183,228,199,.3); color: var(--foreground); }
+button, a, input { &:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; } }
+.font-serif { font-family: 'DM Serif Display', 'DM Serif Display Fallback', serif; }
+.transcript-card { background: #f3f0e8; color: #20252b; }
+.ruled-paper { background-color: rgba(255,255,255,.3); background-image: linear-gradient(rgba(32,37,43,.09) 1px, transparent 1px); background-size: 100% 2rem; }
+mark { background: rgba(185,180,245,.7); color: #20252b; padding: 0 .2em; }
+.room-mark { display: grid; place-items: center; width: 2rem; height: 2rem; border: 1px solid rgba(183,228,199,.55); border-radius: .7rem; color: var(--primary); font-family: Georgia, serif; font-size: 1rem; line-height: 1; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+
+@layer base { h1, h2, h3 { text-wrap: balance; } p { text-wrap: pretty; } }
