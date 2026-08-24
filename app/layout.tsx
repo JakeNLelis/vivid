@@ -3,8 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'Simiu — Practice smarter. Get hired sooner.',
+  description: 'Simiu is the AI-powered mock interview simulator and junior job board for your next role.',
   generator: 'v0.app',
   icons: {
     icon: [
